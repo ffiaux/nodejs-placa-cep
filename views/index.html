@@ -1,0 +1,95 @@
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		
+		<script>
+			$(document).ready(function()
+			{
+				$("#buscarCep").click(function ()
+				{
+                     $.ajax
+					 ({
+                        dataType: 'jsonp',					
+                        jsonp: 'callback',
+                        url: 'http://localhost:7000/buscarCep?callback=?',						
+                        success: function(data) 
+						{
+                            console.log('success');
+                            console.log(JSON.stringify(data));
+							
+							$("#cep").val(data.cep);
+							$("#logradouro").val(data.logradouro);
+							$("#complemento").val(data.complemento);
+							$("#bairro").val(data.bairro);
+							$("#localidade").val(data.localidade);
+							$("#uf").val(data.uf);
+							$("#unidade").val(data.unidade);
+							$("#ibge").val(data.ibge);
+							$("#gia").val(data.gia);
+                        }
+                    });
+				});
+				
+				$("#buscarPlaca").click(function ()
+				{
+                     $.ajax
+					 ({
+                        dataType: 'jsonp',					
+                        jsonp: 'callback',
+                        url: 'http://localhost:7000/buscarPlaca?callback=?',						
+                        success: function(data) 
+						{
+                            console.log('success');
+                            console.log(JSON.stringify(data));
+							
+							$("#situacao").val(data.situacao);
+							$("#modelo").val(data.modelo);
+							$("#marca").val(data.marca);
+							$("#cor").val(data.cor);
+							$("#ano").val(data.ano);
+							$("#anoModelo").val(data.anoModelo);
+							$("#placa").val(data.placa);
+							$("#data").val(data.data);
+							$("#uf").val(data.uf);							
+							$("#municipio").val(data.municipio);		
+							$("#chassi").val(data.chassi);		
+							$("#dataAtualizacaoCaracteristicasVeiculo").val(data.dataAtualizacaoCaracteristicasVeiculo);		
+							$("#dataAtualizacaoRouboFurto").val(data.dataAtualizacaoRouboFurto);		
+							$("#dataAtualizacaoAlarme").val(data.dataAtualizacaoAlarme);							
+                        }
+                    });
+				});				
+			});
+		</script>
+	</head>
+	<body>
+		<input type='button' id='buscarCep' value='CEP' />		
+		<input type='' id='cep' />
+		<input type='' id='logradouro' />
+		<input type='' id='complemento' />
+		<input type='' id='bairro' />
+		<input type='' id='localidade' />
+		<input type='' id='uf' />
+		<input type='' id='unidade' />
+		<input type='' id='ibge' />
+		<input type='' id='gia' />
+		
+		<br><br><br><br><br>
+		
+		<input type='button' id='buscarPlaca' value='Placa' />
+		<input type='' id='situacao' />
+		<input type='' id='modelo' />
+		<input type='' id='marca' />
+		<input type='' id='cor' />
+		<input type='' id='ano' />
+		<input type='' id='anoModelo' />
+		<input type='' id='placa' />
+		<input type='' id='data' />
+		<input type='' id='uf' />		
+		<input type='' id='municipio' />		
+		<input type='' id='chassi' />		
+		<input type='' id='dataAtualizacaoCaracteristicasVeiculo' />		
+		<input type='' id='dataAtualizacaoRouboFurto' />		
+		<input type='' id='dataAtualizacaoAlarme' />		
+	</body>
+</html>
